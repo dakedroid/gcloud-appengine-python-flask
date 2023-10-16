@@ -1,18 +1,26 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-@app.route("/")
+
+def process_string(input_string):
+    # Implement your logic to process the input string
+    # For demonstration purposes, let's assume the processing is converting the string to uppercase
+    processed_string = input_string.upper()
+    return processed_string
+
+
+@app.route("/", methods=["GET", "POST"])
 def homepage():
-    return render_template("index.html", title="HOME PAGE")
+    processed_string = None
 
-@app.route("/docs")
-def docs():
-    return render_template("index.html", title="docs page")
+    if request.method == "POST":
+        input_string = request.form.get("input_string")
+        processed_string = process_string(input_string)
 
-@app.route("/about")
-def about():
-    return render_template("index.html", title="about page")
+    return render_template("index.html", title="Lenguajes y Automatas II", processed_string=processed_string)
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
