@@ -6,16 +6,14 @@
     <body>
         <h1>{{ title }}</h1>
 
-        <!-- Form to take user input -->
         <form method="post">
-            <label for="input_string">Ingrese Cadena:</label>
-            <input type="text" id="input_string" name="input_string">
-            <input type="submit" value="Process">
+            <label for="">Ingresa la cadena:</label>
+            <input type="text" id="entrada" name="entrada">
         </form>
 
         <!-- Display processed string -->
-        {% if processed_string %}
-        <h2>String procesada: {{ processed_string }}</h2>
+        {% if cadenaProcesada %}
+        <h2 style="color: red"> <i>Cadena procesada: {{ cadenaProcesada }}</i> </h2>
         {% endif %}
 
         <p><a href="/">Inicio</a></p>
