@@ -25,8 +25,6 @@ def homepage():
 
     return render_template("index.html", title="Lenguajes y Automatas II", cadenaProcesada=cadenaProcesada)
 
-
-
 if __name__ == "__main__":
     app.run(debug=True)
 
